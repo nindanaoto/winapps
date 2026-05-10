@@ -1132,7 +1132,7 @@ function waCheckRDPAccess() {
         +auto-reconnect \
         +home-drive \
         /app:program:"C:\Windows\System32\cmd.exe",cmd:"/C type NUL > $TEST_PATH_WIN && tsdiscon" \
-        /v:"$RDP_IP" &>"$FREERDP_LOG" &
+        /v:"$RDP_IP":"$RDP_PORT" &>"$FREERDP_LOG" &
 
     # Store the FreeRDP process ID.
     FREERDP_PROC=$!
@@ -1265,7 +1265,7 @@ function waFindInstalled() {
         +auto-reconnect \
         +home-drive \
         /app:program:"C:\Windows\System32\cmd.exe",cmd:"/C "$BATCH_SCRIPT_PATH_WIN"" \
-        /v:"$RDP_IP" &>"$FREERDP_LOG" &
+        /v:"$RDP_IP":"$RDP_PORT" &>"$FREERDP_LOG" &
 
     # Store the FreeRDP process ID.
     FREERDP_PROC=$!
