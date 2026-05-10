@@ -73,7 +73,7 @@ readonly CONFIG_PATH="${HOME}/.config/winapps/winapps.conf" # UNIX path to the W
 readonly INQUIRER_PATH="./install/inquirer.sh" # UNIX path to the 'inquirer' script, which is used to produce selection menus.
 
 # REMOTE DESKTOP CONFIGURATION
-readonly RDP_PORT=3389         # Port used for RDP on Windows.
+RDP_PORT=3389                  # Port used for RDP on Windows.
 readonly DOCKER_IP="127.0.0.1" # Localhost.
 
 ### GLOBAL VARIABLES ###
@@ -561,6 +561,8 @@ function waLoadConfig() {
         # Load the WinApps configuration file.
         # shellcheck source=/dev/null # Exclude this file from being checked by ShellCheck.
         source "$CONFIG_PATH"
+
+        RDP_PORT="${RDP_PORT:-3389}"
 
         # Send password on the command line if a command to retrieve the password from is not given
         # Otherwise, set FREERDP_ASKPASS which freerdp will read the stdout of to use as the password
